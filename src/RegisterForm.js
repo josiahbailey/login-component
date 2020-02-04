@@ -1,39 +1,53 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const Register = () => {
-    const [traveler, setTraveler] = useState({
-        name: '',
+const Register = ({ link }) => {
+    const [user, setUser] = useState({
+        firstName: '',
+        lastName: '',
         email: '',
         password: ''
     }) 
+
+    user.propTypes = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string
+    }
     
     const handleChange = e => {
-        setTraveler({ ...traveler, [e.target.name]: e.target.value })
+        setUser({ ...user, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = e => {
         e.preventDefault()
     }
 
+    const lastName = () => {
+        if (link === '/kidsconnect2') {
+           return(
+               <div>
+               <input onChange={handleChange} value={user.name} name='name' type='text' placeholder='Last Name' /><br/>
+               </div>
+           )
+        }
+    }
+
     return (
         <div>Register
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} value={traveler.name} name='name' type='text' placeholder='First Name' /><br/>
-                <input onChange={handleChange} value={traveler.email} name='email' type='text' placeholder='Email' /><br/>
-                <input onChange={handleChange} value={traveler.password} name='password' type='text' placeholder='Password' /><br/>
+                <input onChange={handleChange} value={user.name} name='name' type='text' placeholder='First Name' /><br/>
+                {lastName()}
+                <input onChange={handleChange} value={user.email} name='email' type='text' placeholder='Email' /><br/>
+                <input onChange={handleChange} value={user.password} name='password' type='text' placeholder='Password' /><br/>
                 <input type='text' placeholder='Confirm Password' /><br/>
-                <button>New Traveler?</button><br/>
-                <button>New KidsConnect?</button>
+                <Link to='/register'><button>Go Back</button></Link>
+                <Link to={link}><button>Continue</button></Link>
             </form>
         </div>
 
     );
-    traveler.propTypes = {
-        name: PropTypes.string,
-        email: PropTypes.string,
-        password: PropTypes.string
-    }
 }
 
 export default Register;

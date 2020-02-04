@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import Login from './Login'
-import Register from './RegisterForm'
+import RegisterForm from './RegisterForm'
+import Register from './Register'
 import { Link, Route } from 'react-router-dom'
 
 function App() {
@@ -14,8 +15,14 @@ function App() {
       <Route path='/login' >
         <Login/>
       </Route>
-      <Route path='/register' >
+      <Route exact path='/register' >
         <Register/>
+      </Route>
+      <Route path='/register/kidsconnect' >
+        <RegisterForm link='/kidsconnect2'/>
+      </Route>
+      <Route path='/register/traveler' >
+        <RegisterForm link='/trips' />
       </Route>
     </div>
   );
