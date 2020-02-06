@@ -21,7 +21,7 @@ function App() {
         <Register/>
       </Route>
       <Route path='/register/kidsconnect' >
-        <RegisterForm link='/kidsconnect2'/>
+        <RegisterForm link='/register/kidsconnect2'/>
       </Route>
       <Route path='/register/traveler' >
         <RegisterForm link='/trips' />
