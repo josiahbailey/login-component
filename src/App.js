@@ -4,13 +4,15 @@ import Login from './Login'
 import RegisterForm from './RegisterForm'
 import Register from './Register'
 import { Link, Route } from 'react-router-dom'
+import Logo from './img/kidsfly_logo.png'
 
 function App() {
   return (
     <div className="App">
+    <div className='logo-div'><img className='logo' src={Logo} /></div>
       <Route exact path='/'>
-        <Link to="/login" >Login</Link><br/>
-        <Link to='/register' >Register</Link>
+        <Link className='app-link' to="/login" ><h1 className='app-h1'>Login</h1></Link><br/>
+        <Link className='app-link' to='/register' ><h1 >Register</h1></Link>
       </Route>
       <Route path='/login' >
         <Login/>
