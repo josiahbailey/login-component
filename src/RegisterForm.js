@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 
 const Register = ({ link }) => {
     const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
+        fullName: '',
         email: '',
-        password: ''
+        password: '',
+        address: '',
+        phone: '',
+        localAirport: ''
     }) 
     const [pass, setPass] = useState('')
     const [passLink, setPassLink] = useState(link)
