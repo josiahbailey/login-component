@@ -54,6 +54,10 @@ h2 {
 
 /*Actual Forms CSS bellow this v*/
 
+.text-input:focus, .input-button:focus {
+    outline: none;
+}
+
 .input-h1 {
     color: #1A70E2;
 }

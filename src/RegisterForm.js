@@ -29,16 +29,6 @@ const Register = ({ link }) => {
     const handleSubmit = e => {
         e.preventDefault()
     }
-
-    const lastName = () => {
-        if (link === '/register/kidsconnect2') {
-           return(
-               <div>
-               <input className='text-input' onChange={handleChange} value={user.name} name='name' type='text' placeholder='Last Name' /><br/>
-               </div>
-           )
-        }
-    }
     
     const [warning, setWarning] = useState('')
 
@@ -62,11 +52,13 @@ const Register = ({ link }) => {
             <h1 className='input-h1'>Register</h1>
             <h1 className='input-warning'>{warning}</h1>
             <form onSubmit={handleSubmit}>
-                <input className='text-input' onChange={handleChange} value={user.name} name='name' type='text' placeholder='First Name' /><br/>
-                {lastName()}
-                <input className='text-input' onChange={handleChange} value={user.email} name='email' type='password' placeholder='Email' /><br/>
-                <input className='text-input' onChange={handleChange} value={user.password} name='password' type='password' placeholder='Password' /><br/>
-                <input className='text-input' onChange={handlePass} type='password' placeholder='Confirm Password' /><br/>
+                <input className='text-input' onChange={handleChange} value={user.fullName} name='fullName' type='text' placeholder='Full name' required /><br/>
+                <input className='text-input' onChange={handleChange} value={user.email} name='email' type='text' placeholder='Email' /><br/>
+                <input className='text-input' onChange={handleChange} value={user.localAirport} name='loacalAirport' type='text' placeholder='Local airport' required /><br/>
+                <input className='text-input' onChange={handleChange} value={user.address} name='address' type='text' placeholder='Address' required /><br/>
+                <input className='text-input' onChange={handleChange} value={user.phone} name='phone' type='number' placeholder='Phone number' required /><br/>
+                <input className='text-input' onChange={handleChange} value={user.password} name='password' type='password' placeholder='Password' required /><br/>
+                <input className='text-input' onChange={handlePass} type='password' placeholder='Confirm Password' required /><br/>
                 <Link to='/register'><button className='input-button'>Go Back</button></Link>
                 <button onClick={e => testPass()} className='input-button'>Continue</button>
             </form>
